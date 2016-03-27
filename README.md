@@ -1,5 +1,7 @@
-# kore2starter-template
-Light essential responsive starter kit for front-end developers
+# bs3starter-template
+Light essential responsive starter kit for front-end developers including free resources
+
+This is waht I use when I start a static web project
 
 ## Components
 + Bootstrap 3 grid system
