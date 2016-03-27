@@ -1,0 +1,64 @@
+/* --------------------------------------------
+FUNCTIONS - Typography
+These functions are specific for typography
+-------------------------------------------- */
+@font-size-h1: (@font-size-h2 * @base-font-scale);
+@font-size-h2: (@font-size-h3 * @base-font-scale);
+@font-size-h3: (@font-size-h4 * @base-font-scale);
+@font-size-h4: @base-font-scale;
+
+@font-size-xl: (@font-size-lg * @base-font-scale);
+@font-size-lg: (@font-size-md * (@base-font-scale * @base-font-scale));
+@font-size-md: 1;
+@font-size-sm: (@font-size-md * 0.85);
+@font-size-xs: (@font-size-md * 0.75);
+
+.__font-size-function(@increment: 1) {
+    @font-size: @increment;
+    @remValue: @font-size;
+    @pxValue: (@base-font-size * @increment);
+	font-size: ~"@{pxValue}px";
+	font-size: ~"@{remValue}rem";
+    line-height: @base-line-height;
+}
+
+/* --------------------------------------------
+TYPOGRAPHY
+For exact type scales please visit :
+http://type-scale.com/
+-------------------------------------------- */
+html {
+	font-size: ~"@{base-font-size}px";
+	-webkit-text-stroke: 0.Xpx;
+}
+body {
+	.__font-size-function(@font-size-md);
+	font-family: @font-content;
+	font-weight: @font-weight-normal;
+	color: @color-text;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+h1 {
+	.__font-size-function(@font-size-h1);
+	font-family: @font-display;
+	margin-top: @base-gap;
+	margin-bottom: @base-gap;
+}
+
+h2 {
+	.__font-size-function(@font-size-h2);
+	font-family: @font-display;
+}
+
+h3 {
+	.__font-size-function(@font-size-h3);
+	font-family: @font-display;
+}
+
+h4 {
+	.__font-size-function(@font-size-h4);
+	font-family: @font-display;
+}

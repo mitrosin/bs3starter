@@ -1,0 +1,66 @@
+/* --------------------------------------------
+BUTTONS - Functions
+-------------------------------------------- */
+.color-setup-bg-border-text(@bg-color, @border-color, @text-color) {
+	background-color: @bg-color;
+	border-color: @border-color;
+	color: @text-color;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.__btn-variant-fill (@color, @text-color) {
+    .color-setup-bg-border-text(@color, none, @text-color);
+    .transition(background-color, 0.5s);
+    &:hover,
+    &:focus,
+    &:active,
+    .active	{
+        .color-setup-bg-border-text(darken(@color, 20%), none, @text-color);
+    }
+}
+.__btn-variant-stroke (@color, @text-color) {
+    .color-setup-bg-border-text(transparent, @color, @color);
+    &:hover,
+    &:focus,
+    &:active,
+    .active	{
+        .transition(background-color, 0.5s);
+        .color-setup-bg-border-text(@color, @color, @text-color);
+    }
+}
+
+
+/* --------------------------------------------
+BUTTONS
+Contruscting the button variations
+-------------------------------------------- */
+.btn {
+    padding: (@base-gap * 0.75) (@base-gap * 2);  
+    border-radius: @border-radius;
+	display: inline-block;
+}
+
+/* Primary Button */
+.btn-bs3-primary {
+	.__btn-variant-fill(@color-primary, @color-white);
+	&.btn-kore-stroke {
+		.__btn-variant-stroke(@color-primary, @color-white);
+	}
+}
+
+/* Secondary Button */
+.btn-bs3-secondary {
+	.__btn-variant-fill(@color-secondary, @color-white);
+	&.btn-kore-stroke {
+		.__btn-variant-stroke(@color-secondary, @color-white);
+	}
+}
+
+/* Accent Button */
+.btn-bs3-accent {
+	.__btn-variant-fill(@color-accent, @color-white);
+	&.btn-kore-stroke {
+		.__btn-variant-stroke(@color-accent, @color-white);
+	}
+}
